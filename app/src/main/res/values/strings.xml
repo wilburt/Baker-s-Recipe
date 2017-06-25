@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Baker\'s Recipe</string>
+
+
+    //Volley Errors
+    <string name="connect_time_o">Connection timed out</string>
+    <string name="no_connect_err">No internet connection found. Check your connection and try again</string>
+    <string name="auth_error">Authentication failure</string>
+    <string name="server_error">Server failure</string>
+    <string name="network_error">Network failure. Check your connection and try again</string>
+    <string name="parse_error">Parsing failure</string>
+    <string name="sth_wrong">Something went wrong</string>
+
+
+    <string name="alert_retry">Retry</string>
+    <string name="license">Licenses</string>
+    <string name="details_stub">Click a recipe on left to show the details here</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="steps_in_recipe">%1$d steps</string>
+    <string name="servings_in_recipe">%1$d servings</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="steps">Steps</string>
+    <string name="appwidget_text">Recipe name</string>
+
+</resources>
