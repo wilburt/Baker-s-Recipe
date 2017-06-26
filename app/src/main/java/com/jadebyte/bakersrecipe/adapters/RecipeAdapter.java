@@ -41,6 +41,11 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     @Override
     public void onBindViewHolder(final RecipeViewHolder holder, int position) {
         holder.bindModel(recipeList.get(position));
+        if (position == recipeList.size() / 2) {
+            holder.setIsInTheMiddle(true);
+        } else {
+            holder.setIsInTheMiddle(false);
+        }
         setAnimation(holder.itemView, position);
     }
 
