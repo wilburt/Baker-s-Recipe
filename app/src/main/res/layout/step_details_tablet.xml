@@ -1,0 +1,65 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:padding="@dimen/padding_medium"
+    tools:context="com.jadebyte.bakersrecipe.fragments.StepDetailsFragment">
+
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2">
+
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:id="@+id/simple_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline2"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="237dp"
+        tools:layout_editor_absoluteX="0dp"/>
+
+
+    <TextView
+        android:id="@+id/step_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="Peel the yam"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"/>
+
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_description"
+        android:drawablePadding="@dimen/padding_medium"
+        android:id="@+id/step_thumb_nail"
+        android:layout_margin="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:src="@drawable/ic_recipe"/>
+
+</android.support.constraint.ConstraintLayout>

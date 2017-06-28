@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.RecipeActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -40,7 +40,21 @@
             android:permission="android.permission.BIND_REMOTEVIEWS">
         </service>
 
-        <activity android:name=".activities.TestActivity">
+        <activity
+            android:name=".activities.StepActivity"
+            android:parentActivityName=".activities.RecipeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jadebyte.bakersrecipe.activities.RecipeActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.StepDetailsActivity"
+            android:parentActivityName=".activities.StepActivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jadebyte.bakersrecipe.activities.StepActivity"/>
         </activity>
     </application>
 

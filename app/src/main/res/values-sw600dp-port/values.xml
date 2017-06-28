@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="is_single_pane">true</bool>
+    <item name="activity_step" type="layout">@layout/activity_step_single_pane</item>
+    <item name="fragment_step" type="layout">@layout/step_fragment_wide</item>
+    <item name="activity_step_content" type="layout">@layout/step_details_phone_compete</item>
+</resources>

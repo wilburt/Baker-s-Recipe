@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<resources>
-    <item name="recipe_fragment_details" type="layout">@layout/recipe_details_frag_narrow</item>
-</resources>

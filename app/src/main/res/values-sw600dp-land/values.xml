@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="is_single_pane">false</bool>
+    <item name="activity_step" type="layout">@layout/activity_step_double_pane</item>
+    <item name="fragment_step" type="layout">@layout/step_fragment_wide</item>
+    <item name="fragment_step_details" type="layout">@layout/step_details_tablet</item>
+</resources>

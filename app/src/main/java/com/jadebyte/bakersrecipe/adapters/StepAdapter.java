@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jadebyte.bakersrecipe.R;
-import com.jadebyte.bakersrecipe.listeners.StepVideoClickListener;
+import com.jadebyte.bakersrecipe.listeners.StepClickListener;
 import com.jadebyte.bakersrecipe.pojos.Step;
 import com.jadebyte.bakersrecipe.viewholders.StepViewHolder;
 
@@ -15,13 +15,13 @@ import java.util.List;
 
 public class StepAdapter extends RecyclerView.Adapter<StepViewHolder> {
     private List<Step> stepList;
-    private StepVideoClickListener videoClickListener;
+    private StepClickListener videoClickListener;
 
     public StepAdapter(List<Step> stepList) {
         this.stepList = stepList;
     }
 
-    public void setVideoClickListener(StepVideoClickListener videoClickListener) {
+    public void setVideoClickListener(StepClickListener videoClickListener) {
         this.videoClickListener = videoClickListener;
     }
 

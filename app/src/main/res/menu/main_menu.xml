@@ -3,20 +3,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_ingredients"
-          android:title="@string/ingredients"
-          android:orderInCategory="2"
-          android:icon="@drawable/ic_ingredients_white"
-          android:visible="false"
-          app:showAsAction="always"/>
-
-    <item android:id="@+id/action_steps"
-          android:title="@string/steps"
-          android:orderInCategory="3"
-          android:icon="@drawable/ic_steps_white"
-          android:visible="false"
-          app:showAsAction="always"/>
-
     <item
         android:id="@+id/action_license"
         android:orderInCategory="2"

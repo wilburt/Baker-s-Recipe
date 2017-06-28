@@ -25,6 +25,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:support-v4:25.4.0'
@@ -37,15 +38,15 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.android.exoplayer:exoplayer-core:r2.4.2'
     compile 'com.google.android.exoplayer:exoplayer-ui:r2.4.2'
-
-    androidTestCompile 'com.android.support.test:runner:0.5';
-    androidTestCompile 'com.android.support.test:rules:0.5';
+    compile 'com.android.support.test.espresso:espresso-idling-resource:2.2.2'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
     androidTestCompile 'com.android.support:support-annotations:25.4.0'
     androidTestCompile 'com.android.support:support-v4:25.4.0'
     androidTestCompile 'com.android.support:appcompat-v7:25.4.0'
     androidTestCompile 'com.android.support:design:25.4.0'
     androidTestCompile 'com.android.support:recyclerview-v7:25.4.0'
     androidTestCompile 'com.android.support.test.espresso:espresso-contrib:2.2.2'
-    testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }

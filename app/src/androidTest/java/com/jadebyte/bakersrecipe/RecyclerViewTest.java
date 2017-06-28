@@ -1,68 +1,70 @@
 package com.jadebyte.bakersrecipe;
 
+import android.support.test.espresso.Espresso;
+import android.support.test.espresso.IdlingResource;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 
-import com.jadebyte.bakersrecipe.activities.TestActivity;
-import com.jadebyte.bakersrecipe.adapters.TestAdapter;
+import com.jadebyte.bakersrecipe.activities.RecipeActivity;
+import com.jadebyte.bakersrecipe.pojos.Recipe;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import java.util.List;
+import java.util.Random;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Created by wilbur on 6/26/17 at 9:47 AM.
  */
 
 public class RecyclerViewTest {
-    private static final int ITEM_BELOW_THE_FOLD = 20;
 
     @Rule
-    public ActivityTestRule<TestActivity> activityTestRule = new ActivityTestRule<>(
-            TestActivity.class);
+    public ActivityTestRule<RecipeActivity> activityTestRule = new ActivityTestRule<>(
+            RecipeActivity.class);
 
-    @Test
-    public void scrollToItemBelowFoldCheckItsText() {
+    private IdlingResource idlingResource;
 
-        onView(ViewMatchers.withId(R.id.test_recyclerView))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(ITEM_BELOW_THE_FOLD, click()));
-
-        String itemText = activityTestRule.getActivity().getResources().getString(
-                R.string.test_item_text) + String.valueOf(ITEM_BELOW_THE_FOLD);
-        onView(withText(itemText)).check(matches(isDisplayed()));
-    }
-
-    @Test
-    public void itemInMiddleOfListHasSpecialText() {
-
-        onView(ViewMatchers.withId(R.id.test_recyclerView))
-                .perform(RecyclerViewActions.scrollToHolder(isInTheMiddle()));
-
-        String middleElementText = activityTestRule.getActivity().getResources().getString(R.string.middle_item);
-        onView(withText(middleElementText)).check(matches(isDisplayed()));
+    @Before
+    public void registerIdlingResource() {
+        idlingResource = activityTestRule.getActivity().getIdlingResource();
+        Espresso.registerIdlingResources(idlingResource);
     }
 
 
-    private static Matcher<TestAdapter.TestHolder> isInTheMiddle() {
-        return new TypeSafeMatcher<TestAdapter.TestHolder>() {
-            @Override
-            protected boolean matchesSafely(TestAdapter.TestHolder testHolder) {
-                return testHolder.getIsInTheMiddle();
-            }
+    @Test
+    public void testResponse() {
+        List<Recipe> recipeList = activityTestRule.getActivity().getRecipeList();
 
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("item in the middle");
-            }
-        };
+        if (recipeList.size() == 0) { // Network request failed
+
+            onView(withId(R.id.recipe_info_error_button)).check(matches(isDisplayed()));
+            onView(withId(R.id.recipe_info_error_text)).check(matches(isDisplayed()));
+
+        } else { // Network request is successful
+            Random random = new Random();
+            onView(ViewMatchers.withId(R.id.recipe_recycler))
+                    .perform(RecyclerViewActions.actionOnItemAtPosition(random.nextInt(recipeList.size()), click()));
+
+        }
+
+    }
+
+
+    @After
+    public void unregisterIdlingResource() {
+        if (idlingResource != null) {
+            Espresso.unregisterIdlingResources(idlingResource);
+        }
     }
 }

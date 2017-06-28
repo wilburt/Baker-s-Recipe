@@ -3,7 +3,6 @@ package com.jadebyte.bakersrecipe.pojos;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +11,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Recipe implements Parcelable {
-    private String title;
     private int id;
     private String name;
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
@@ -37,8 +35,6 @@ public class Recipe implements Parcelable {
         this.name = jsonObject.getString("name");
         this.servings = jsonObject.getInt("servings");
         this.image = jsonObject.getString("image");
-
-        Log.d("Recipe", "Recipe: " + name);
     }
 
     public int getId() {
@@ -65,6 +61,7 @@ public class Recipe implements Parcelable {
         return image;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -80,7 +77,7 @@ public class Recipe implements Parcelable {
         dest.writeString(this.image);
     }
 
-    protected Recipe (Parcel in) {
+    protected Recipe(Parcel in) {
         this.id = in.readInt();
         this.name = in.readString();
         this.ingredients = in.createTypedArrayList(Ingredient.CREATOR);
@@ -89,15 +86,15 @@ public class Recipe implements Parcelable {
         this.image = in.readString();
     }
 
-    public static final Creator<Ingredient> CREATOR = new Creator<Ingredient>() {
+    public static final Parcelable.Creator<Recipe> CREATOR = new Parcelable.Creator<Recipe>() {
         @Override
-        public Ingredient createFromParcel(Parcel source) {
-            return new Ingredient(source);
+        public Recipe createFromParcel(Parcel source) {
+            return new Recipe(source);
         }
 
         @Override
-        public Ingredient[] newArray(int size) {
-            return new Ingredient[size];
+        public Recipe[] newArray(int size) {
+            return new Recipe[size];
         }
     };
 }

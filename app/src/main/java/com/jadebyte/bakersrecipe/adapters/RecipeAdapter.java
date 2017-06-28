@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 
-import com.jadebyte.bakersrecipe.R;
 import com.jadebyte.bakersrecipe.listeners.RecipeClickedListener;
 import com.jadebyte.bakersrecipe.pojos.Recipe;
 import com.jadebyte.bakersrecipe.viewholders.RecipeViewHolder;
@@ -18,11 +17,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     private RecipeClickedListener onRecipeClicked;
     private List<Recipe> recipeList;
     private int lastPosition = -1;
+    private int recipeItemLayoutId;
 
-    public RecipeAdapter(List<Recipe> recipeList) {
+    public RecipeAdapter(List<Recipe> recipeList, int recipeItemLayoutId) {
         super();
         this.recipeList = recipeList;
         this.onRecipeClicked = null;
+        this.recipeItemLayoutId = recipeItemLayoutId;
     }
 
     public void setOnRecipeClickedListener (RecipeClickedListener onItemClickedListener) {
@@ -33,7 +34,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     @Override
     public RecipeViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recipe_item, parent, false);
+                .inflate(recipeItemLayoutId, parent, false);
         return new RecipeViewHolder(view, onRecipeClicked, recipeList);
     }
 
@@ -41,11 +42,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
     @Override
     public void onBindViewHolder(final RecipeViewHolder holder, int position) {
         holder.bindModel(recipeList.get(position));
-        if (position == recipeList.size() / 2) {
-            holder.setIsInTheMiddle(true);
-        } else {
-            holder.setIsInTheMiddle(false);
-        }
         setAnimation(holder.itemView, position);
     }
 

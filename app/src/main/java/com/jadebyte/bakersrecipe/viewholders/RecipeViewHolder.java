@@ -28,7 +28,6 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.On
 
     private RecipeClickedListener clickedListener;
     private List<Recipe> recipesList;
-    private boolean mIsInTheMiddle = false;
 
     public RecipeViewHolder(final View View, RecipeClickedListener clickedListener, List<Recipe> recipesList) {
         super(View);
@@ -80,13 +79,5 @@ public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.On
                         .LENGTH_SHORT).show();
                 break;
         }
-    }
-
-    public boolean getIsInTheMiddle() {
-        return mIsInTheMiddle;
-    }
-
-    public void setIsInTheMiddle(boolean isInTheMiddle) {
-        mIsInTheMiddle = isInTheMiddle;
     }
 }

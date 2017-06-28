@@ -14,15 +14,14 @@
 
     <string name="alert_retry">Retry</string>
     <string name="license">Licenses</string>
-    <string name="details_stub">Click a recipe on left to show the details here</string>
     <string name="dismiss">Dismiss</string>
     <string name="steps_in_recipe">%1$d steps</string>
     <string name="servings_in_recipe">%1$d servings</string>
     <string name="ingredients">Ingredients</string>
     <string name="steps">Steps</string>
     <string name="appwidget_text">Recipe name</string>
-    <string name="element_text">Element</string>
-    <string name="test_item_text">This a test element #</string>
-    <string name="middle_item">This is the middle item!</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+
 
 </resources>
