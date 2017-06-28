@@ -72,7 +72,6 @@ public class StepDetailsFragment extends Fragment {
             stepsList = getArguments().getParcelableArrayList(STEPS);
             position = getArguments().getInt(POSITION);
             step = stepsList.get(position);
-            Log.d(TAG, "onCreate: " + step.getShortDescription());
         }
     }
 

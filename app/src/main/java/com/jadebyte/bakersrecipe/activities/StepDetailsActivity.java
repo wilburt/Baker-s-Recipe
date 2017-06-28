@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -82,9 +81,7 @@ public class StepDetailsActivity extends AppCompatActivity implements View.OnCli
         if (descriptionTv != null) {
             descriptionTv.setText(step.getDescription());
             hideFullScreen();
-            Log.d("StepDetailsActivity", "onCreate: Hide full screen");
         } else {
-            Log.d("StepDetailsActivity", "onCreate: SHow full Screen");
             makeFullScreen();
         }
 
@@ -184,7 +181,6 @@ public class StepDetailsActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void preparePlayer() {
-        Log.d("StepDetailsActivity", "preparePlayer: " + step.getVideoUrl());
         final Uri videoUrl = Uri.parse(step.getVideoUrl());
         final DefaultDataSourceFactory dataFactory = new DefaultDataSourceFactory(this, Util.getUserAgent(this, getString(R
                 .string.app_name)));

@@ -59,7 +59,6 @@ public class StepActivity extends AppCompatActivity implements StepClickListener
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
         } else {
-            Log.i(TAG, "showFullStep: " + position);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.step_fragment_container, StepDetailsFragment.newInstance(recipe.getSteps(), position), "StepDetailsFragment");
             ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_left, R.anim.slide_out_right);

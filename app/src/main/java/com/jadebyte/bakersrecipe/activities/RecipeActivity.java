@@ -20,7 +20,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -157,7 +156,6 @@ public class RecipeActivity extends AppCompatActivity implements RecipeClickedLi
             @Override
             public void onResponse(JSONArray response) {
                 // Successful request
-                Log.d(TAG, "onResponse");
                 if (progressBar != null) {
                     progressBar.setVisibility(View.GONE);
                 }
@@ -171,7 +169,6 @@ public class RecipeActivity extends AppCompatActivity implements RecipeClickedLi
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, "onErrorResponse");
                 if (progressBar != null) {
                     progressBar.setVisibility(View.GONE);
                 }
@@ -204,7 +201,6 @@ public class RecipeActivity extends AppCompatActivity implements RecipeClickedLi
     }
 
     private void parseResponse(JSONArray array) {
-        Log.d(TAG, "parseResponse: ");
         try {
 
             for(int a = 0; a<array.length(); a++) {
