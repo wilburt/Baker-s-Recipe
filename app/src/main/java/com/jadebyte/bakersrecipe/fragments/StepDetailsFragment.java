@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,7 +92,10 @@ public class StepDetailsFragment extends Fragment {
 
 
     private void loadThumbNail() {
-        Glide.with(getActivity()).load(step.getThumbnailUrl()).into(stepThumbNail);
+        final String thumbnailUrl = step.getThumbnailUrl();
+        if (!TextUtils.isEmpty(thumbnailUrl)) {
+            Glide.with(getActivity()).load(thumbnailUrl).into(stepThumbNail);
+        }
     }
 
 
@@ -123,14 +126,14 @@ public class StepDetailsFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         initializePlayer();
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         releasePlayer();
     }
 

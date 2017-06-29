@@ -60,6 +60,6 @@
         android:id="@+id/step_thumb_nail"
         android:layout_margin="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
-        android:src="@drawable/ic_recipe"/>
+        tools:src="@drawable/ic_recipe"/>
 
 </android.support.constraint.ConstraintLayout>

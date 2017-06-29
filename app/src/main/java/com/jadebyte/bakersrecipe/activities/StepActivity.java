@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import com.jadebyte.bakersrecipe.R;
 import com.jadebyte.bakersrecipe.fragments.StepDetailsFragment;
@@ -25,10 +24,6 @@ public class StepActivity extends AppCompatActivity implements StepClickListener
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
-
-        if (bundle == null) {
-            finish();
-        }
         Recipe recipe = bundle.getParcelable(Constants.Keys.RECIPE_OBJECT);
 
         startStepFragment(recipe);

@@ -4,4 +4,5 @@
     <item name="activity_step" type="layout">@layout/activity_step_single_pane</item>
     <item name="fragment_step" type="layout">@layout/step_fragment_wide</item>
     <item name="activity_step_content" type="layout">@layout/step_details_phone_compete</item>
+    <item name="fragment_step_details" type="layout">@layout/step_details_tablet</item>
 </resources>

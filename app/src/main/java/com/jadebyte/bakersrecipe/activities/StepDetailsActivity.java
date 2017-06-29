@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -91,8 +92,9 @@ public class StepDetailsActivity extends AppCompatActivity implements View.OnCli
 
 
     private void loadThumbNail() {
-        if (stepThumbNail != null) {
-            Glide.with(this).load(step.getThumbnailUrl()).into(stepThumbNail);
+        final String thumbnailUrl = step.getThumbnailUrl();
+        if (stepThumbNail != null && !TextUtils.isEmpty(thumbnailUrl)) {
+            Glide.with(this).load(thumbnailUrl).into(stepThumbNail);
         }
     }
 
@@ -169,14 +171,14 @@ public class StepDetailsActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         initializePlayer();
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         releasePlayer();
     }
 
